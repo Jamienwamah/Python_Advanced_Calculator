@@ -17,7 +17,7 @@ def click(value):
         answer=math.sqrt(eval(ex))
 
     elif value=='π':
-        answer=math.pi
+        answer=math.pi;
 
 
         entryField.delete(0,END)
