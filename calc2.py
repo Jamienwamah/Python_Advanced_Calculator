@@ -1,4 +1,27 @@
 from tkinter import *
+import math
+
+def click(value):
+    ex = entryField.get()
+
+
+    if value=='C':
+        ex=ex[0:len(ex)-1]
+        entryField.delete(0,END)
+        entryField.insert(0,ex)
+
+    elif value=='CE':
+        entryField.delete(0,END)
+
+    elif value=='√':
+        answer=math.sqrt(eval(ex))
+
+    elif value=='π':
+        answer=math.pi
+
+
+        entryField.delete(0,END)
+        entryField.insert(0,answer)
 
 root=Tk()
 root.title('Smart Calculator')
@@ -26,7 +49,8 @@ button_text_list = ["C", "CE", "√", "+", "π", "cosθ", "tanθ", "sinθ",
 rowValue=1
 columnValue=0
 for i in button_text_list:
-    button=Button(root, width=5, height=2, bd=2, relief=SUNKEN, text=i, bg='dodgerblue3', fg='white', font=('arial', 15, 'bold'), activebackground='dodgerblue3')
+    button=Button(root, width=5, height=2, bd=2, relief=SUNKEN, text=i, bg='dodgerblue3', fg='white',
+                  font=('arial', 15, 'bold'), activebackground='dodgerblue3', command=lambda button=i: click(button))
     button.grid(row=rowValue,column=columnValue, pady=1)
     columnValue+=1
     if columnValue>7:
