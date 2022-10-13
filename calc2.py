@@ -1,27 +1,91 @@
 from tkinter import *
 import math
-
 def click(value):
-    ex = entryField.get()
+    ex = entryField.get()  # 789 ex[0:len(ex)-1]
+    answer = ''
+
+    if value == 'C':
+        ex = ex[0:len(ex) -1]
+        entryField.delete(0, END)
+        entryField.insert(0, ex)
+        return
+
+    elif value == 'CE':
+        entryField.delete(0, END)
+
+    elif value == '√':
+        answer = math.sqrt(eval(ex))
+
+    elif value == 'π':
+        answer = math.pi
+
+    elif value == 'cosθ':
+        answer = math.cos(math.radians(eval(ex)))
+
+    elif value == 'tanθ':
+        answer = math.tan(math.radians(eval(ex)))
+
+    elif value == 'sinθ':
+        answer = math.sin(math.radians(eval(ex)))
+
+    elif value == '2π':
+        answer = 2 * math.pi
+
+    elif value == 'cosh':
+        answer = math.cosh(eval(ex))
+
+    elif value == 'sinh':
+        answer = math.sinh(eval(ex))
+
+    elif value == 'tanh':
+        answer = math.tanh(eval(ex))
+
+    elif value == 'chr(8731)':
+        answer = eval(ex) ** (1 / 3)
+
+    elif value == 'x\u02b8':
+        entryField.insert(END, '**')
+
+    elif value == 'x\u00B3':
+        answer = eval(ex) ** 3
+
+    elif value == 'x\u00B2':
+        answer = eval(ex) ** 2
+
+    elif value=='ln':
+        answer = math.log2(eval(ex))
+
+    elif value == 'deg':
+        answer = math.degrees(eval(ex))
+
+    elif value == 'rad':
+        answer = math.radians(eval(ex))
+
+    elif value == 'e':
+        answer = math.e
+
+    elif value == 'log₁₀':
+        answer = math.log10(eval(ex))
+
+    elif value == 'x!':
+        answer = math.factorial(eval(ex))
+
+    elif value == chr(247):
+        entryField.insert(END, "/")
+        return
+
+    elif value == '=':
+        answer = eval(ex)
+
+    else:
+        entryField.insert(END, value)
+        return
 
 
-    if value=='C':
-        ex=ex[0:len(ex)-1]
-        entryField.delete(0,END)
-        entryField.insert(0,ex)
-
-    elif value=='CE':
-        entryField.delete(0,END)
-
-    elif value=='√':
-        answer=math.sqrt(eval(ex))
-
-    elif value=='π':
-        answer=math.pi;
 
 
-        entryField.delete(0,END)
-        entryField.insert(0,answer)
+        entryField.delete(0, END)
+        entryField.insert(0, answer)
 
 root=Tk()
 root.title('Smart Calculator')
