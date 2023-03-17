@@ -1,3 +1,7 @@
+""""This project was created by
+Nwamah Ikechukwu Arinze
+Emmanuel Amadi""""""
+
 from tkinter import *
 import math
 from pygame import mixer
